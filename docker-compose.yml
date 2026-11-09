@@ -1,0 +1,27 @@
+services:
+  server:
+    build: ./api
+    container_name: manutencao-server
+    ports:
+      - "3008:3001"
+    env_file:
+      - ./api/.env
+    environment:
+      PORT: "3001"
+    volumes:
+      - manutencao_uploads:/app/uploads
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./web
+      args:
+        VITE_API_URL: ${VITE_API_URL:?Defina a variável VITE_API_URL antes de buildar}
+        VITE_HUB_URL: ${VITE_HUB_URL:?Defina a variável VITE_HUB_URL antes de buildar}
+    container_name: manutencao-client
+    ports:
+      - "8088:80"
+    restart: unless-stopped
+
+volumes:
+  manutencao_uploads:

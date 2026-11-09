@@ -1,0 +1,6 @@
+node_modules
+.env
+
+# fotos das manutenções — ficam num volume do Docker, não no Git
+/uploads/*
+!/uploads/.gitkeep
