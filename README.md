@@ -113,4 +113,5 @@ navegador um cookie `token` (JWT) válido para todo o `*.lojanovamix.com.br`.
 VITE_API_URL=https://<endereço da api>/api VITE_HUB_URL=https://hub.lojanovamix.com.br docker compose up -d --build
 ```
 
-Portas: API em `3008`, site em `8088`.
+Portas: API em `3008`, site em `8088`. Se alguma já estiver ocupada no servidor, troque no
+`.env` da raiz com `API_PORT=` e `WEB_PORT=` (as portas de dentro do container não mudam).
